@@ -1,6 +1,6 @@
 - id: local
   name: EHRbase
-  baseUrl: http://ehrbase:8081/ehrbase/rest
+  baseUrl: http://ehrbase:8080/ehrbase/rest
   authMethod: basic
   basicAuth:
     username: ehrbase_restricted
