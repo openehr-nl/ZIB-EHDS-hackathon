@@ -9,25 +9,71 @@ services:
       - ./config:/app/config
       - ./.plugins:/app/plugins:ro
       - ./vonk-imported:/app/vonk-imported
+      - ./licenses/firely-license.json:/app/license/firely-license.json
     depends_on:
       mongodb:
         condition: service_healthy
 
+  openfhir:
+    image: openfhir/openfhir-enterprise:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./fhirconnect:/app/bootstrap/"
+      - "./licenses/openfhir-license.json:/app/openfhir-license.json"
+    depends_on:
+      - mongodb
+    entrypoint: ["/bin/sh", "-c", "sleep 10 && exec java -jar app.jar"]
+    environment:
+      SPRING_DATA_MONGODB_URI: "mongodb://openfhir:openfhir@mongodb:27017/openfhir"
+      OPENFHIR_DB_TYPE: "mongo"
+
   mongodb:
     image: mongo:7
-    command: ["mongod", "--logpath", "/dev/null"]
+    container_name: mongodb
     ports:
       - "27017:27017"
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=admin
+      MONGO_INITDB_ROOT_USERNAME: "admin"
+      MONGO_INITDB_ROOT_PASSWORD: "admin"
+      MONGO_INITDB_DATABASE: "openfhir"
     volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - mongodb-data:/data/db
     healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
       interval: 5s
       timeout: 5s
       retries: 10
+
+  ehrbase-postgres:
+    image: ehrbase/ehrbase-v2-postgres:16.2
+    container_name: ehrbase-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      PASSWORD: postgres
+      EHRBASE_USER: ehrbase_restricted
+      EHRBASE_PASSWORD: ehrbase_restricted
+      EHRBASE_USER_ADMIN: ehrbase
+      EHRBASE_PASSWORD_ADMIN: ehrbase
+    restart: unless-stopped
+  ehrbase:
+    image: ehrbase/ehrbase
+    container_name: ehrbase
+    ports:
+      - "8081:8080"
+    environment:
+      DB_URL: jdbc:postgresql://ehrbase-postgres:5432/ehrbase
+      DB_USER: ehrbase_restricted
+      DB_PASS: ehrbase_restricted
+      DB_USER_ADMIN: ehrbase
+      DB_PASS_ADMIN: ehrbase
+      SERVER_NODENAME: local.ehrbase.org
+      SPRING_PROFILES_ACTIVE: local
+    restart: unless-stopped
+
 
 volumes:
   mongodb-data:
