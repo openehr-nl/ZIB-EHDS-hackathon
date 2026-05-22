@@ -1,7 +1,7 @@
 grammar: FHIRConnect/v1.0.0
 type: model
 metadata:
-  name: EVALUATION.adverse_reaction_risk.v2
+  name: ZIB-EVALUATION.adverse_reaction_risk.v2
   version: 0.0.1-alpha
 spec:
   system: FHIR
@@ -43,7 +43,7 @@ mappings:
   - name: "LastReactionDateTime"
     with:
       fhir: "$resource.lastOccurrence"
-      openehr: "$archetype/data[at0001]/items[at0133]"
+      openehr: "$archetype/data[at0001]/items[at0117]"
 
   - name: "Comment"
     with:
@@ -54,4 +54,4 @@ mappings:
     with:
       fhir: "$resource.reaction"
       openehr: "$archetype/data[at0001]/items[openEHR-EHR-CLUSTER.adverse_reaction_event.v1]"
-    slotArchetype: "CLUSTER.adverse_reaction_event.v1"
+    slotArchetype: "ZIB-CLUSTER.adverse_reaction_event.v1"

@@ -14,6 +14,6 @@ context:
   template:
     id: "DataHub-AllergyIntolerance-2017"
   archetypes:
-    - "EVALUATION.adverse_reaction_risk.v2"
-    - "CLUSTER.adverse_reaction_event.v1"
-  start: "EVALUATION.adverse_reaction_risk.v2"
+    - "ZIB-EVALUATION.adverse_reaction_risk.v2"
+    - "ZIB-CLUSTER.adverse_reaction_event.v1"
+  start: "ZIB-EVALUATION.adverse_reaction_risk.v2"
