@@ -1,0 +1,7 @@
+- id: local
+  name: EHRbase
+  baseUrl: http://ehrbase/ehrbase/rest
+  authMethod: basic
+  basicAuth:
+    username: ehrbase-user
+    password: SuperSecretPassword

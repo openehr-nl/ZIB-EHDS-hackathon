@@ -1,0 +1,66 @@
+{
+  "Serilog": {
+    "Using": [
+      "Firely.Server"
+    ],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Vonk.Server": "Information",
+        "Vonk.Core.Pluggability": "Information",
+        "Vonk.Core.Licensing": "Information",
+        "Vonk.Administration.Api.Import": "Information",
+        "Vonk.Repository.Generic": "Information",
+        "Vonk.Repository.Sql.SqlVonkConfiguration": "Information",
+        "Vonk": "Warning",
+        "Microsoft.EntityFrameworkCore": "Error",
+        "Microsoft.Hosting": "Information",
+        "OpenFhirFirelyPlugin": "Debug"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Async",
+        "Args": {
+          "configure": [
+            {
+              "Name": "Console",
+              "Args": {
+                "restrictedToMinimumLevel": "Debug",
+                "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [UserId: {UserId}] [Username: {Username}] [{Level}] [ReqId: {RequestId}] {Message:l}{NewLine}{Exception}"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Name": "Async",
+        "Args": {
+          "configure": [
+            {
+              "Name": "File",
+              "Args": {
+                "path": "%temp%/vonk.log",
+                "rollingInterval": "Day",
+                "fileSizeLimitBytes": "",
+                "retainedFileCountLimit": "7",
+                "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [UserId: {UserId}] [Username: {Username}] [{Application}] [{Level}] [Machine: {MachineName}] [ReqId: {RequestId}] {Message:l}{NewLine}{Exception}",
+                "restrictedToMinimumLevel": "Information"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Enrich": [
+      "FromLogContext",
+      "WithMachineName",
+      "WithThreadId",
+      "WithSerilogActivity"
+    ],
+    "Properties": {
+      "Application": "Firely Server",
+      "Environment": "Default"
+    }
+  }
+}

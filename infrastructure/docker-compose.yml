@@ -1,0 +1,33 @@
+services:
+  firely:
+    image: firely/server:6.7.0
+    ports:
+      - "4080:4080"
+    environment:
+      - VONK_PATH_TO_SETTINGS=/app/config
+    volumes:
+      - ./config:/app/config
+      - ./.plugins:/app/plugins:ro
+      - ./vonk-imported:/app/vonk-imported
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
+  mongodb:
+    image: mongo:7
+    command: ["mongod", "--logpath", "/dev/null"]
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - mongodb-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mongodb-data:
