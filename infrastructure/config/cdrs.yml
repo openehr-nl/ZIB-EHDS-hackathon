@@ -1,7 +1,7 @@
 - id: local
   name: EHRbase
-  baseUrl: http://ehrbase/ehrbase/rest
+  baseUrl: http://ehrbase:8081/ehrbase/rest
   authMethod: basic
   basicAuth:
-    username: ehrbase-user
-    password: SuperSecretPassword
+    username: ehrbase_restricted
+    password: ehrbase_restricted
