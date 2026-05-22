@@ -2,13 +2,13 @@
 
 ```
 infrastructure/
-  docker-compose.yml        # built up step by step throughout the tutorial
+  docker-compose.yml        
   config/
-    appsettings.instance.json
+    appsettings.instance.json # settings for Firely server
     firely-license.json     # your Firely Server trial license (add this yourself)
     cdrs.yml                # integration for openEHR CDRs
-    logsettings.json        # firely logsettings
-  vonk-imported/            # create manually before Step 1 (see below)
+    logsettings.json        # Firely logsettings
+  vonk-imported/            # create manually, see below
   .plugins/                 # pre-populated with plugin DLLs
 ```
 
