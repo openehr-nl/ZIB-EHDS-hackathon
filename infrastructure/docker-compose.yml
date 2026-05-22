@@ -9,6 +9,7 @@ services:
       - ./config:/app/config
       - ./.plugins:/app/plugins:ro
       - ./vonk-imported:/app/vonk-imported
+      - ./licenses/firely-license.json:/app/license/firely-license.json
     depends_on:
       mongodb:
         condition: service_healthy
@@ -19,7 +20,7 @@ services:
       - "8080:8080"
     volumes:
       - "./fhirconnect:/app/bootstrap/"
-      - "./openfhir-license.json:/app/openfhir-license.json"
+      - "./licenses/openfhir-license.json:/app/openfhir-license.json"
     depends_on:
       - mongodb
     entrypoint: ["/bin/sh", "-c", "sleep 10 && exec java -jar app.jar"]

@@ -1,4 +1,5 @@
-infrastructure/openfhir-license.json
-infrastructure/config/firely-license.json
+infrastructure/licenses/openfhir-license.json
+infrastructure/licenses/firely-license.json
 .idea
 infrastructure/vonk-imported/*.json
+infrastructure/licenses/*.*
