@@ -30,6 +30,7 @@ services:
 
   mongodb:
     image: mongo:7
+    command: ["mongod", "--logpath", "/dev/null"]
     container_name: mongodb
     ports:
       - "27017:27017"
