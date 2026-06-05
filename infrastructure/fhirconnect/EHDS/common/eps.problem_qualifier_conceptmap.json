@@ -1,0 +1,140 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "eps-problem-qualifier-fhirconnect",
+  "url": "http://hl7.org/fhir/ConceptMap/eps-problem-qualifier-fhirconnect",
+  "description": "EPS Problem Qualifier Mappings (clinical status)",
+  "group": [
+    {
+      "source": "local",
+      "target": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+      "element": [
+        {
+          "code": "at0026",
+          "target": [
+            {
+              "code": "active",
+              "display": "Active",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0027",
+          "target": [
+            {
+              "code": "inactive",
+              "display": "Inactive",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0084",
+          "target": [
+            {
+              "code": "resolved",
+              "display": "Resolved",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0097",
+          "target": [
+            {
+              "code": "relapse",
+              "display": "Relapse",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0090",
+          "target": [
+            {
+              "code": "remission",
+              "display": "Remission",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0096",
+          "target": [
+            {
+              "code": "recurrence",
+              "display": "Recurrence",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+      "target": "local",
+      "element": [
+        {
+          "code": "active",
+          "target": [
+            {
+              "code": "at0026",
+              "display": "Active",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "inactive",
+          "target": [
+            {
+              "code": "at0027",
+              "display": "Inactive",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "resolved",
+          "target": [
+            {
+              "code": "at0084",
+              "display": "Resolved",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "relapse",
+          "target": [
+            {
+              "code": "at0097",
+              "display": "Relapsed",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "remission",
+          "target": [
+            {
+              "code": "at0090",
+              "display": "In remission",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "recurrence",
+          "target": [
+            {
+              "code": "at0096",
+              "display": "Recurrence",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

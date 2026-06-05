@@ -1,0 +1,153 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "eps-problem-diagnosis-fhirconnect",
+  "url": "http://hl7.org/fhir/ConceptMap/eps-problem-diagnosis-fhirconnect",
+  "description": "EPS Problem Diagnosis Mappings (severity, verification status)",
+  "group": [
+    {
+      "source": "local",
+      "target": "http://terminology.hl7.org/CodeSystem/condition-severity",
+      "element": [
+        {
+          "code": "at0047",
+          "target": [
+            {
+              "code": "mild",
+              "display": "Mild",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0048",
+          "target": [
+            {
+              "code": "moderate",
+              "display": "Moderate",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0049",
+          "target": [
+            {
+              "code": "severe",
+              "display": "Severe",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "http://terminology.hl7.org/CodeSystem/condition-severity",
+      "target": "local",
+      "element": [
+        {
+          "code": "mild",
+          "target": [
+            {
+              "code": "at0047",
+              "display": "Mild",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "moderate",
+          "target": [
+            {
+              "code": "at0048",
+              "display": "Moderate",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "severe",
+          "target": [
+            {
+              "code": "at0049",
+              "display": "Severe",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "source": "local",
+      "target": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+      "element": [
+        {
+          "code": "at0076",
+          "target": [
+            {
+              "code": "confirmed",
+              "display": "Confirmed",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0074",
+          "target": [
+            {
+              "code": "unconfirmed",
+              "display": "Unconfirmed",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0075",
+          "target": [
+            {
+              "code": "provisional",
+              "display": "Provisional",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+      "target": "local",
+      "element": [
+        {
+          "code": "confirmed",
+          "target": [
+            {
+              "code": "at0076",
+              "display": "Confirmed",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "unconfirmed",
+          "target": [
+            {
+              "code": "at0074",
+              "display": "Suspected",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "provisional",
+          "target": [
+            {
+              "code": "at0075",
+              "display": "Probable",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

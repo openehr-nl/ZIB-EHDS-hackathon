@@ -1,0 +1,102 @@
+grammar: FHIRConnect/v1.0.0
+type: model
+metadata:
+  name: ACTION.procedure.v1
+  version: 0.0.1-alpha
+spec:
+  system: FHIR
+  version: R4
+  openEhrConfig:
+    archetype: openEHR-EHR-ACTION.procedure.v1
+    revision: 1.4.7
+  fhirConfig:
+    structureDefinition: http://hl7.org/fhir/StructureDefinition/Procedure
+
+terminology:
+  type: "local"
+  conceptmap: "http://hl7.org/fhir/ConceptMap/eps-procedure-fhirconnect"
+
+mappings:
+
+  - name: "ISMTransition"
+    with:
+      fhir: "$resource.status"
+      openehr: "$archetype/ism_transition/careflow_step"
+
+  - name: "performedDateTime"
+    with:
+      fhir: "$resource.performed.as(DateTime)"
+      openehr: "$archetype/description[at0001]/items[at0060]"
+
+  - name: "code"
+    with:
+      fhir: "$resource.code"
+      openehr: "$archetype/description[at0001]/items[at0002]"
+
+  - name: "reason"
+    with:
+      fhir: "$resource.reasonCode"
+      openehr: "$archetype/description[at0001]/items[at0070]"
+
+  - name: "category"
+    with:
+      fhir: "$resource.category"
+      openehr: "$archetype/description[at0001]/items[at0067]"
+
+  - name: "statusReason"
+    with:
+      fhir: "$resource.statusReason"
+      openehr: "$archetype/description[at0001]/items[at0014]"
+
+  - name: "bodySite"
+    with:
+      fhir: "$resource.bodySite"
+      openehr: "$archetype/description[at0001]/items[at0063]"
+
+  - name: "usedDevice"
+    with:
+      fhir: "$resource.usedReference"
+      openehr: "$reference"
+    reference:
+      resourceType: "Device"
+      mappings:
+        - name: "usedDevice"
+          with:
+            fhir: "$fhirRoot"
+            openehr: "$archetype/description[at0001]/items[openEHR-EHR-CLUSTER.device.v1, 'Used device']"
+          slotArchetype: "CLUSTER.device.v1"
+
+  - name: "usedCode"
+    with:
+      fhir: "$resource.usedCode"
+      openehr: "$archetype/description[at0001]/items[openEHR-EHR-CLUSTER.device.v1, 'Used device']/items[at0003]"
+
+  - name: "focalDevice"
+    with:
+      fhir: "$resource.focalDevice.manipulated"
+      openehr: "$reference"
+    reference:
+      resourceType: "Device"
+      mappings:
+        - name: "focalDevice"
+          with:
+            fhir: "$fhirRoot"
+            openehr: "$archetype/description[at0001]/items[openEHR-EHR-CLUSTER.device.v1, 'Focal device']"
+          slotArchetype: "CLUSTER.device.v1"
+
+
+  - name: "outcome"
+    with:
+      fhir: "$resource.outcome"
+      openehr: "$archetype/description[at0001]/items[at0048]"
+
+  - name: "complication"
+    with:
+      fhir: "$resource.complication"
+      openehr: "$archetype/description[at0001]/items[at0006]"
+
+
+  - name: "note"
+    with:
+      fhir: "$resource.note.text"
+      openehr: "$archetype/description[at0001]/items[at0005]"

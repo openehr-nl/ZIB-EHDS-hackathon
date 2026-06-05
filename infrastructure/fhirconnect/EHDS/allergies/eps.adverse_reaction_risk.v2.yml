@@ -1,0 +1,109 @@
+grammar: FHIRConnect/v1.0.0
+type: model
+metadata:
+  name: EVALUATION.adverse_reaction_risk.v2
+  version: 0.0.1-alpha
+spec:
+  system: FHIR
+  version: R4
+  openEhrConfig:
+    archetype: openEHR-EHR-EVALUATION.adverse_reaction_risk.v2
+    revision: 1.4.1
+  fhirConfig:
+    structureDefinition: http://hl7.org/fhir/StructureDefinition/AllergyIntolerance
+
+terminology:
+  type: "local"
+  conceptmap: "http://hl7.org/fhir/ConceptMap/eps-adverse-reaction-risk-fhirconnect"
+
+mappings:
+  # EPSAllergyIntolerance.agentOrAllergen
+  - name: "substance"
+    with:
+      fhir: "$resource.code"
+      openehr: "$archetype/data[at0001]/items[at0002]"
+
+  # EPSAllergyIntolerance.status — active/inactive clinical status
+  - name: "clinicalStatus"
+    with:
+      fhir: "$resource.clinicalStatus"
+      openehr: "$archetype/data[at0001]/items[at0130]"
+
+  # EPSAllergyIntolerance.certainty — verification status
+  - name: "verificationStatus"
+    with:
+      fhir: "$resource.verificationStatus"
+      openehr: "$archetype/data[at0001]/items[at0063]"
+
+  # EPSAllergyIntolerance.criticality
+  - name: "criticality"
+    with:
+      fhir: "$resource.criticality"
+      openehr: "$archetype/data[at0001]/items[at0101]"
+
+  # EPSAllergyIntolerance.category
+  - name: "category"
+    with:
+      fhir: "$resource.category"
+      openehr: "$archetype/data[at0001]/items[at0120]"
+    terminology:
+      type: "inline"
+      mappings:
+        - openehr:
+            code: "Food"
+          fhir:
+            code: "food"
+        - openehr:
+            code: "Medication"
+          fhir:
+            code: "medication"
+        - openehr:
+            code: "Environment"
+          fhir:
+            code: "environment"
+        - openehr:
+            code: "Biologic"
+          fhir:
+            code: "biologic"
+
+  # EPSAllergyIntolerance.onsetDate — onset of first reaction
+  - name: "onsetDateTime"
+    with:
+      fhir: "$resource.onset.as(DateTime)"
+      openehr: "$archetype/data[at0001]/items[at0133]"
+
+  # EPSAllergyIntolerance.lastOccurrence
+  - name: "lastOccurrence"
+    with:
+      fhir: "$resource.lastOccurrence"
+      openehr: "$archetype/data[at0001]/items[at0117]"
+
+  # EPSAllergyIntolerance.typeOfPropensity — reaction mechanism (allergy vs intolerance)
+  - name: "typeOfPropensity"
+    with:
+      fhir: "$resource.type"
+      openehr: "$archetype/data[at0001]/items[at0058]"
+    terminology:
+      type: "inline"
+      mappings:
+        - openehr:
+            code: "Allergy"
+          fhir:
+            code: "allergy"
+        - openehr:
+            code: "Intolerance"
+          fhir:
+            code: "intolerance"
+
+  # EPSAllergyIntolerance.note.text — comment/narrative
+  - name: "description"
+    with:
+      fhir: "$resource.note.text"
+      openehr: "$archetype/data[at0001]/items[at0006]"
+
+  # EPSAllergyIntolerance.reaction — adverse reaction event cluster
+  - name: "reaction"
+    with:
+      fhir: "$resource.reaction"
+      openehr: "$archetype/data[at0001]/items[openEHR-EHR-CLUSTER.adverse_reaction_event.v1]"
+    slotArchetype: "CLUSTER.adverse_reaction_event.v1"

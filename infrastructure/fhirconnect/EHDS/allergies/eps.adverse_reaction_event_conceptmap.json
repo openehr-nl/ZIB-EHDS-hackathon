@@ -1,0 +1,80 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "eps-adverse-reaction-event-fhirconnect",
+  "url": "http://hl7.org/fhir/ConceptMap/eps-adverse-reaction-event-fhirconnect",
+  "description": "EPS Adverse Reaction Event Mappings (severity)",
+  "group": [
+    {
+      "source": "local",
+      "target": "http://hl7.org/fhir/ValueSet/reaction-event-severity",
+      "element": [
+        {
+          "code": "at0011",
+          "target": [
+            {
+              "code": "mild",
+              "display": "Mild",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0012",
+          "target": [
+            {
+              "code": "moderate",
+              "display": "Moderate",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0013",
+          "target": [
+            {
+              "code": "severe",
+              "display": "Severe",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "http://hl7.org/fhir/ValueSet/reaction-event-severity",
+      "target": "local",
+      "element": [
+        {
+          "code": "mild",
+          "target": [
+            {
+              "code": "at0011",
+              "display": "Mild",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "moderate",
+          "target": [
+            {
+              "code": "at0012",
+              "display": "Moderate",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "severe",
+          "target": [
+            {
+              "code": "at0013",
+              "display": "Severe",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

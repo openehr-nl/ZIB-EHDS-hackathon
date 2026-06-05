@@ -1,0 +1,152 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "eps-procedure-fhirconnect",
+  "url": "http://hl7.org/fhir/ConceptMap/eps-procedure-fhirconnect",
+  "description": "EPS Procedure Mappings (ISM transition / status)",
+  "group": [
+    {
+      "source": "local",
+      "target": "http://hl7.org/fhir/ValueSet/event-status",
+      "element": [
+        {
+          "code": "at0004",
+          "display": "planned",
+          "target": [
+            {
+              "code": "preparation",
+              "display": "Preparation",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0038",
+          "display": "postponed",
+          "target": [
+            {
+              "code": "on-hold",
+              "display": "On Hold",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0039",
+          "display": "cancelled",
+          "target": [
+            {
+              "code": "not-done",
+              "display": "Not Done",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0068",
+          "display": "commenced",
+          "target": [
+            {
+              "code": "in-progress",
+              "display": "In Progress",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0041",
+          "display": "aborted",
+          "target": [
+            {
+              "code": "stopped",
+              "display": "Stopped",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0043",
+          "display": "completed",
+          "target": [
+            {
+              "code": "completed",
+              "display": "Completed",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "http://hl7.org/fhir/ValueSet/event-status",
+      "target": "local",
+      "element": [
+        {
+          "code": "preparation",
+          "display": "Preparation",
+          "target": [
+            {
+              "code": "at0004",
+              "display": "Procedure planned",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "on-hold",
+          "display": "On Hold",
+          "target": [
+            {
+              "code": "at0038",
+              "display": "Procedure postponed",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "not-done",
+          "display": "Not Done",
+          "target": [
+            {
+              "code": "at0039",
+              "display": "Procedure cancelled",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "in-progress",
+          "display": "In Progress",
+          "target": [
+            {
+              "code": "at0068",
+              "display": "Procedure commenced",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "stopped",
+          "display": "Stopped",
+          "target": [
+            {
+              "code": "at0041",
+              "display": "Procedure aborted",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "completed",
+          "display": "Completed",
+          "target": [
+            {
+              "code": "at0043",
+              "display": "Procedure completed",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

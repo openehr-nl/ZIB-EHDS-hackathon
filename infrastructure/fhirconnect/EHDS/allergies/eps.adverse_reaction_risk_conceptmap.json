@@ -1,0 +1,206 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "eps-adverse-reaction-risk-fhirconnect",
+  "url": "http://hl7.org/fhir/ConceptMap/eps-adverse-reaction-risk-fhirconnect",
+  "description": "EPS Adverse Reaction Risk Mappings (clinical status, verification status, criticality)",
+  "group": [
+    {
+      "source": "local",
+      "target": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+      "element": [
+        {
+          "code": "at0131",
+          "target": [
+            {
+              "code": "active",
+              "display": "Active",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0132",
+          "target": [
+            {
+              "code": "inactive",
+              "display": "Inactive",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+      "target": "local",
+      "element": [
+        {
+          "code": "active",
+          "target": [
+            {
+              "code": "at0131",
+              "display": "Active",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "inactive",
+          "target": [
+            {
+              "code": "at0132",
+              "display": "Inactive",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "source": "local",
+      "target": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+      "element": [
+        {
+          "code": "at0064",
+          "target": [
+            {
+              "code": "unconfirmed",
+              "display": "Unconfirmed",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0065",
+          "target": [
+            {
+              "code": "confirmed",
+              "display": "Confirmed",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0066",
+          "target": [
+            {
+              "code": "refuted",
+              "display": "Refuted",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+      "target": "local",
+      "element": [
+        {
+          "code": "unconfirmed",
+          "target": [
+            {
+              "code": "at0064",
+              "display": "Unconfirmed",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "confirmed",
+          "target": [
+            {
+              "code": "at0065",
+              "display": "Confirmed",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "refuted",
+          "target": [
+            {
+              "code": "at0066",
+              "display": "Refuted",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "source": "local",
+      "target": "http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality",
+      "element": [
+        {
+          "code": "at0102",
+          "target": [
+            {
+              "code": "low",
+              "display": "Low",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0103",
+          "target": [
+            {
+              "code": "high",
+              "display": "High",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "at0124",
+          "target": [
+            {
+              "code": "unable-to-assess",
+              "display": "Unable to Assess Risk",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality",
+      "target": "local",
+      "element": [
+        {
+          "code": "low",
+          "target": [
+            {
+              "code": "at0102",
+              "display": "Low",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "high",
+          "target": [
+            {
+              "code": "at0103",
+              "display": "High",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "unable-to-assess",
+          "target": [
+            {
+              "code": "at0124",
+              "display": "Indeterminate",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
