@@ -15,7 +15,7 @@ services:
         condition: service_healthy
 
   openfhir:
-    image: openfhir/openfhir-enterprise:build
+    image: openfhir/openfhir-enterprise:latest
     ports:
       - "8080:8080"
     volumes:
@@ -27,7 +27,7 @@ services:
     environment:
       SPRING_DATA_MONGODB_URI: "mongodb://openfhir:openfhir@mongodb:27017/openfhir"
       OPENFHIR_DB_TYPE: "mongo"
-      RECURSIVELY-OPEN-DIRECTORIES: "true"
+      OPENFHIR_BOOTSTRAP_RECURSIVELY_OPEN_DIRECTORIES: "true"
 
   mongodb:
     image: mongo:7
