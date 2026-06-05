@@ -27,6 +27,7 @@ services:
     environment:
       SPRING_DATA_MONGODB_URI: "mongodb://openfhir:openfhir@mongodb:27017/openfhir"
       OPENFHIR_DB_TYPE: "mongo"
+      RECURSIVELY-OPEN-DIRECTORIES: "true"
 
   mongodb:
     image: mongo:7
