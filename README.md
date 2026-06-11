@@ -1,14 +1,14 @@
 # ZIB-EHDS-hackathon
-Repo containing materials for a hackathon to link BGZ FHIR recource to openEHR to EHDS FHIR
+Repo containing materials for a hackathon to link BGZ FHIR recource to openEHR to EHDS FHIR.
 
-# outline
+# Outline
 This project aims to output a FHIR resources (allery intolerance only for now) conforming to the EHDS EPS FHIR profile. Based on a BGLZ input resource. (supposedly produced by Nedap Ons, used an example from simplifier for now: https://simplifier.net/packages/nictiz.fhir.nl.stu3.zib2017/2.3.1/files/2980360).
 
 # prerequisites
 - docker running locally
 - postman with network access to the docker network (e.g. running locally)
 
-# steps to replicate
+# Steps to replicate
 1. Clone this repo to your local filesystem
 2. Get a firely license at https://fire.ly/firely-server-trial
    Once you have it, place it in the licenses/ folder inside infrastructure/ subfolder and name it firely-license.json.
@@ -26,14 +26,14 @@ This project aims to output a FHIR resources (allery intolerance only for now) c
 13. send `Get Patient EHDS Summary Copy from Firely`
 14. :tada:
     
-# limitations 
-We used an example resource from nictiz, not a resource actually produced by Nedap Ons.
+# Limitations 
+We used an example resource from nictiz, not a resource actually produced by e.g. Nedap Ons.
 
-# alternative setups
+# Alternative setups
 We used Firely for convenience the setup should work with HAPI FHIR as well, for users prefering an open source setup.
 We used openFHIR locally, we could have used openFHIR sandbox to save on setup time.
 
-# future steps
+# Future steps
 Expand the setup for the rest of the BGLZ/EHDS, dependent on FHIR-Connect mappings in https://github.com/openehr-nl/ZIBs-on-openEHR and https://github.com/freshehrteam/EHDS/tree/eps_fhirconnect_mappings-terminology/Mappings/fhirconnect .
 Any additional mappings need to be added to /infrastructure to be loaded by openFHIR on startup, or added to openFHIR using the approriate api call.
 Test this readme with a user without our context.
