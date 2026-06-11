@@ -147,7 +147,7 @@
 			"response": []
 		},
 		{
-			"name": "Get Patient EHDE Summary Copy from firely",
+			"name": "Get Patient EHDS Summary Copy from Firely",
 			"request": {
 				"method": "GET",
 				"header": [],
